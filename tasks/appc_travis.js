@@ -10,7 +10,7 @@
 
 module.exports = function (grunt) {
 
-	grunt.registerMultiTask('appcTravis', 'Installs and configures the Travis CI machines', function () {
+	grunt.registerTask('appcTravis', 'Installs and configures the Travis CI machines', function () {
 
 		var done = this.async();
 		var data = 'bnBtIGluc3RhbGwgYXBwY2VsZXJhdG9yICYmIGFwcGMgdXNlIGxhdGVzdCAmJiBzZWQgLWkgJ3MvaWYgKG9wdHMuc2tpcFZlcmlmeSkgeyByZXR1cm4gY2FsbGJhY2soKTsgfS9yZXR1cm4gY2FsbGJhY2soKTsvZycgYGZpbmQgfi8uYXBwY2VsZXJhdG9yL2luc3RhbGwgLW5hbWUgImxvZ2luLmpzImAgJiYgYXBwYyBsb2dpbiAtLXVzZXJuYW1lICRVU0VSTkFNRSAtLXBhc3N3b3JkICRQQVNTV09SRCAmJiBhcHBjIGluc3RhbGw=';
