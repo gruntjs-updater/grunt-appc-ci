@@ -1,0 +1,51 @@
+{
+  "name": "grunt-appc-ci",
+  "description": "Linting and style checks for Appcelerator JavaScript",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ingo/grunt-appc-ci",
+  "author": {
+    "name": "Ingo Muschenetz",
+    "email": "ingo@muschenetz.com"
+  },
+  "keywords": [
+    "appc-client"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ingo/grunt-appc-ci.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ingo/grunt-appc-ci/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ingo/grunt-appc-ci/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "extend-grunt-plugin": "^0.1.0",
+    "packpath": "^0.1.0",
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-jscs": "^1.5.0",
+    "jscs-jsdoc": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt-cli": "*",
+    "grunt-bump": "^0.3.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
