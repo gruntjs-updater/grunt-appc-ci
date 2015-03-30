@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 		install += 'appc login --username $USERNAME --password $PASSWORD';
 		install += 'appc install';
 
-		exec(commands, function (err) {
+		exec(install, function (err) {
 			if (err) { grunt.fail.fatal(err); }
 			grunt.log.ok('Patched');
 			return done();
