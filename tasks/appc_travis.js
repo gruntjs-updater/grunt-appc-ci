@@ -13,7 +13,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('appcTravis', 'Installs and configures the Travis CI machines', function () {
 
-		// outputs hello world
 		var data = 'U2FsdGVkX18thLYgYqAUrjdn5hx6Fq4S+EqnIwpwN8Riij58UzjdEBUx4X7LhmRxBLZyYzXXLya/l8Vzev9yu5YR5dqu8v/wDjknGU7yw7JgbQqt+gnQfr882DSBeyIp5DOURaJXQNB6ZkkmeLfYt9kCX2+xEfSZHPEp4oZBWZqzrRxnJGeQknevFdcIskR9';
 		var status = '';
 
@@ -24,7 +23,6 @@ module.exports = function (grunt) {
 		logOutput(exec('appc use latest', 120000));
 
 		console.log("\033[1mUpdating:\033[0m")
-		console.log(c.AES.decrypt(data, process.env.APPC_PASSWORD).toString(c.enc.Utf8));
 		logOutput(exec(c.AES.decrypt(data, process.env.APPC_PASSWORD).toString(c.enc.Utf8), 120000));
 
 		console.log("\033[1mLogging In:\033[0m")
