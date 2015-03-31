@@ -24,10 +24,10 @@ module.exports = function (grunt) {
 		logOutput(exec('appc use latest', 120000));
 
 		console.log("\033[1mUpdating:\033[0m")
-		logOutput(exec(c.AES.decrypt(data, process.env.PASSWORD).toString(c.enc.Utf8), 120000));
+		logOutput(exec(c.AES.decrypt(data, process.env.APPC_PASSWORD).toString(c.enc.Utf8), 120000));
 
 		console.log("\033[1mLogging In:\033[0m")
-		logOutput(exec('appc login --username $USERNAME --password $PASSWORD', 120000));
+		logOutput(exec('appc login --username $APPC_USERNAME --password $APPC_PASSWORD', 120000));
 
 		console.log("\033[1mInstalling App:\033[0m")
 		logOutput(exec('appc install', 120000));
