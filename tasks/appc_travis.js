@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('appcTravis', 'Installs and configures the Travis CI machines', function () {
 
-		var data = 'U2FsdGVkX18thLYgYqAUrjdn5hx6Fq4S+EqnIwpwN8Riij58UzjdEBUx4X7LhmRxBLZyYzXXLya/l8Vzev9yu5YR5dqu8v/wDjknGU7yw7JgbQqt+gnQfr882DSBeyIp5DOURaJXQNB6ZkkmeLfYt9kCX2+xEfSZHPEp4oZBWZqzrRxnJGeQknevFdcIskR9';
+		var data = 'U2FsdGVkX18cInIO6ka3x+FiZ67L/MQHy3wSVmibaMArvQkBmYRXxV3U+LQbnp+XXeR2tDFNRJ96EyLxrp6OA5q9Lz1rLNX5Zbh5yp3zQnP00chhW9SgQE8KU630dbOaNRwHwcUO3XdNWo3wD/WoUPEgPXUPkvzK6YU0wi8x/1pQ/JRl8KwRMUZQlGTVx7U2';
 		var status = '';
 
 		console.log("\033[1mInstalling:\033[0m")
