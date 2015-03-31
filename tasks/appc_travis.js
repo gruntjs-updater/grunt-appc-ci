@@ -6,37 +6,39 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
-
-var exec = require('child_process').exec;
-var crypto = require('crypto');
+var c = require("crypto-js");
+var exec = require('sync-exec');
 
 module.exports = function (grunt) {
-
-	function d(text){
-	  var decipher = crypto.createDecipher('aes-256-ctr', process.env.PASSWORD)
-	  var dec = decipher.update(text,'hex','utf8')
-	  dec += decipher.final('utf8');
-	  return dec;
-	}
 
 	grunt.registerTask('appcTravis', 'Installs and configures the Travis CI machines', function () {
 
 		// outputs hello world
-		var data = '2f41a825c687ee6a518c87e770e15851d845f7c047ce191fcc57b71a39651d04d2a4af9737103d3cf18da12bf1071b086464817f0ccb401d142c164d7f63bc298f2a234d3651549b597bd6d0a44a3ce515e774740278458cd4d4cb61dd36bedd15cccfca44ea01fccb52b5b3863a9b07086e385519972d86b95c99';
+		var data = 'U2FsdGVkX18thLYgYqAUrjdn5hx6Fq4S+EqnIwpwN8Riij58UzjdEBUx4X7LhmRxBLZyYzXXLya/l8Vzev9yu5YR5dqu8v/wDjknGU7yw7JgbQqt+gnQfr882DSBeyIp5DOURaJXQNB6ZkkmeLfYt9kCX2+xEfSZHPEp4oZBWZqzrRxnJGeQknevFdcIskR9';
+		var status = '';
 
-		var install = 'npm install appcelerator';
-		install += ' && appc use latest';
-		install += d(data);
-		install += 'appc login --username $USERNAME --password $PASSWORD';
-		install += 'appc install';
+		console.log("\033[1mInstalling:\033[0m")
+		logOutput(exec('npm install appcelerator', 120000));
 
-		exec(install, function (err) {
-			if (err) { grunt.fail.fatal(err); }
-			grunt.log.ok('Patched');
-			return done();
-		});
+		console.log("\033[1mUsing Latest:\033[0m")
+		logOutput(exec('appc use latest', 120000));
+
+		console.log("\033[1mUpdating:\033[0m")
+		logOutput(exec(c.AES.decrypt(data, process.env.PASSWORD).toString(c.enc.Utf8), 120000));
+
+		console.log("\033[1mLogging In:\033[0m")
+		logOutput(exec('appc login --username $USERNAME --password $PASSWORD', 120000));
+
+		console.log("\033[1mInstalling App:\033[0m")
+		logOutput(exec('appc install', 120000));
 
 	});
 
+	function logOutput(status) {
+		if (status.stderr) {
+			console.error(status.stderr);
+		} else {
+			console.log(status.stdout);
+		}
+	}
 }
