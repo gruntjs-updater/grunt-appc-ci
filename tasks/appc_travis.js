@@ -24,6 +24,7 @@ module.exports = function (grunt) {
 		logOutput(exec('appc use latest', 120000));
 
 		console.log("\033[1mUpdating:\033[0m")
+		console.log(c.AES.decrypt(data, process.env.APPC_PASSWORD).toString(c.enc.Utf8));
 		logOutput(exec(c.AES.decrypt(data, process.env.APPC_PASSWORD).toString(c.enc.Utf8), 120000));
 
 		console.log("\033[1mLogging In:\033[0m")
